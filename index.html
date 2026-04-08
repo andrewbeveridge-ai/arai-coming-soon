@@ -120,6 +120,14 @@
       animation:fadeUp 1s 1s ease both, shimmer 6s 2.5s linear infinite;
     }
 
+    /* Mobile pillar line break */
+    .p-break { display:none; }
+    @media(max-width:600px){
+      .p-break { display:inline; }
+      .pillars { display:flex; flex-direction:column; align-items:center; gap:.3rem; }
+      .p-line { text-align:center; }
+    }
+
     /* Activate warp button */
     .activate-wrap { margin-bottom:1.6rem; position:relative; animation:fadeUp 1s 1.1s ease both; }
     .activate-btn {
@@ -244,7 +252,7 @@
   <p class="brand-another">Another Realm</p>
   <p class="brand-dba">AI International</p>
   <div class="gold-rule"></div>
-  <p class="pillars">Intelligent Infrastructure &nbsp;◆&nbsp; Built to Scale &nbsp;◆&nbsp; Infinite Potential</p>
+  <p class="pillars"><span class="p-line">Intelligent Infrastructure &nbsp;◆&nbsp; Built to Scale</span><span class="p-break"> &nbsp;◆&nbsp; </span><span class="p-line">Infinite Potential</span></p>
 
   <div class="activate-wrap">
     <button class="activate-btn" id="activateBtn" onclick="activateWarp()">Enter The Realm</button>
@@ -439,10 +447,11 @@ function cycle(){
     coreEl.classList.remove('brightened');cyc=false;setTimeout(cycle,5000);
   },rb+3*600+2000+200);
 }
-setTimeout(cycle,1200);
+// Disable orbit on mobile — rings look wrong traveling off small screens
+if(window.innerWidth > 600) setTimeout(cycle,1200);
 
 /* ── Email ── */
-const SU='';
+const SU='https://script.google.com/macros/s/AKfycbzy1St_hJ0tOeEp2D5hCYFwPlg7jpx0pdB0o7SSUTuzQTPvzMuuukcT_iJWOeyctBI/exec';
 async function submitEmail(){
   const inp=document.getElementById('emailInput'),btn=inp.nextElementSibling,email=inp.value.trim();
   if(!email||!email.includes('@')||!email.includes('.')){showErr('Please enter a valid email.');return;}
