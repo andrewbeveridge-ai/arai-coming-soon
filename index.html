@@ -430,11 +430,28 @@ function activateWarp() {
 /* ── Orbital — mover-based (same as Productions) ── */
 const movers = ['m1','m2','m3','m4'].map(id => document.getElementById(id));
 const coreEl = document.getElementById('coreSphere');
+// Orbit paths — constrained to stay on screen and above title text
 const PATHS = [
-  [{tx:'0px',ty:'0px'},{tx:'calc(40vw - 110px)',ty:'calc(-25vh + 36px)'},{tx:'calc(40vw - 110px)',ty:'calc(25vh - 36px)'},{tx:'calc(-40vw + 110px)',ty:'calc(25vh - 36px)'},{tx:'calc(-40vw + 110px)',ty:'calc(-25vh + 36px)'}],
-  [{tx:'0px',ty:'0px'},{tx:'calc(-38vw + 100px)',ty:'calc(-22vh + 32px)'},{tx:'calc(-38vw + 100px)',ty:'calc(22vh - 32px)'},{tx:'calc(38vw - 100px)',ty:'calc(22vh - 32px)'},{tx:'calc(38vw - 100px)',ty:'calc(-22vh + 32px)'}],
-  [{tx:'0px',ty:'0px'},{tx:'0px',ty:'calc(-35vh + 28px)'},{tx:'calc(35vw - 85px)',ty:'0px'},{tx:'0px',ty:'calc(35vh - 28px)'},{tx:'calc(-35vw + 85px)',ty:'0px'}],
-  [{tx:'0px',ty:'0px'},{tx:'0px',ty:'calc(32vh - 23px)'},{tx:'calc(-32vw + 70px)',ty:'0px'},{tx:'0px',ty:'calc(-32vh + 23px)'},{tx:'calc(32vw - 70px)',ty:'0px'}],
+  [{tx:'0px',ty:'0px'},
+   {tx:'calc(40vw - 110px)',ty:'calc(-22vh + 36px)'},
+   {tx:'calc(40vw - 110px)',ty:'calc(22vh - 36px)'},
+   {tx:'calc(-40vw + 110px)',ty:'calc(22vh - 36px)'},
+   {tx:'calc(-40vw + 110px)',ty:'calc(-22vh + 36px)'}],
+  [{tx:'0px',ty:'0px'},
+   {tx:'calc(-38vw + 95px)',ty:'calc(-20vh + 32px)'},
+   {tx:'calc(-38vw + 95px)',ty:'calc(20vh - 32px)'},
+   {tx:'calc(38vw - 95px)',ty:'calc(20vh - 32px)'},
+   {tx:'calc(38vw - 95px)',ty:'calc(-20vh + 32px)'}],
+  [{tx:'0px',ty:'0px'},
+   {tx:'0px',ty:'calc(-20vh + 28px)'},
+   {tx:'calc(35vw - 70px)',ty:'0px'},
+   {tx:'0px',ty:'calc(18vh - 28px)'},
+   {tx:'calc(-35vw + 70px)',ty:'0px'}],
+  [{tx:'0px',ty:'0px'},
+   {tx:'0px',ty:'calc(16vh - 23px)'},
+   {tx:'calc(-32vw + 60px)',ty:'0px'},
+   {tx:'0px',ty:'calc(-18vh + 23px)'},
+   {tx:'calc(32vw - 60px)',ty:'0px'}],
 ];
 const ks = document.createElement('style'); document.head.appendChild(ks);
 function iKF(n,p){const f=p.map((pt,i)=>`${[0,25,50,75,100][i]}%{transform:translate(${pt.tx},${pt.ty});opacity:${i===0?1:0.45};}`).join(' ');try{ks.sheet.insertRule(`@keyframes ${n}{${f}}`,ks.sheet.cssRules.length);}catch(e){}}
