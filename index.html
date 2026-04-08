@@ -118,6 +118,10 @@
       -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
       background-size:250% 250%; margin-bottom:2rem; text-align:center;
       animation:fadeUp 1s 1s ease both, shimmer 6s 2.5s linear infinite;
+      line-height:2;
+    }
+    @media(max-width:500px){
+      .pillars { font-size:clamp(.72rem,3.5vw,.88rem); line-height:2.2; }
     }
 
     /* Mobile pillar line break */
@@ -221,8 +225,11 @@
       .ring-4{width:77px; height:31px;top:-15.5px;left:-38.5px;}
       .core-sphere{width:35px;height:35px;margin:-17.5px 0 0 -17.5px;}
       .brand-another{font-size:clamp(1.8rem,5vw,2.6rem);}
-      .pillars{font-size:clamp(.7rem,3vw,.88rem);}
+      .pillars{font-size:clamp(.72rem,3.5vw,.88rem);}
       .form-wrap{max-width:100%;}
+      /* Stack pillars vertically on narrow screens */
+      .pillar-sep{ display:none; }
+      .pillar-line{ display:block; line-height:2; }
     }
   </style>
 </head>
@@ -456,7 +463,7 @@ async function submitEmail(){
   const inp=document.getElementById('emailInput'),btn=inp.nextElementSibling,email=inp.value.trim();
   if(!email||!email.includes('@')||!email.includes('.')){showErr('Please enter a valid email.');return;}
   const orig=btn.textContent;btn.textContent='...';btn.disabled=true;let ok=false;
-  if(SU){try{const r=await fetch(SU,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,venture:'Another Realm AI International',source:location.hostname})});if((await r.json()).status==='success')ok=true;}catch(_){}}
+  if(SU){try{const r=await fetch(SU,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({secret:'Realmauto2026!',action:'email_signup',email,venture:'Another Realm AI International',source:location.hostname})});if((await r.json()).status==='success')ok=true;}catch(_){}}
   if(!ok){try{const fd=new FormData();fd.append('form-name','arai-waitlist');fd.append('venture','Another Realm AI International');fd.append('email',email);const r=await fetch('/',{method:'POST',body:fd});if(r.ok)ok=true;}catch(_){ok=true;}}
   if(ok){document.getElementById('inputRow').style.display='none';document.getElementById('successMsg').style.display='block';}
   else{btn.textContent=orig;btn.disabled=false;showErr('Something went wrong. Try again.');}
