@@ -136,7 +136,7 @@
     @media(max-width:500px){
       .p-mob { display:block; text-align:center; line-height:1.8; }
       .p-desk { display:none; }
-      .success-msg { font-size:.95rem; letter-spacing:.04em; white-space:normal; overflow:visible; }
+      .success-msg { font-size:.9rem; letter-spacing:.03em; white-space:normal; overflow:visible; line-height:1.5; }
       .input-row button { padding:.85rem .9rem; font-size:.72rem; letter-spacing:.1em; }
     }
 
@@ -270,7 +270,7 @@
   <div class="gold-rule"></div>
   <p class="pillars">
   <span class="p-desk">Intelligent Infrastructure &nbsp;◆&nbsp; Built to Scale &nbsp;◆&nbsp; Infinite Potential</span>
-  <span class="p-mob">Intelligent Infrastructure<br>◆&nbsp; Built to Scale<br>◆&nbsp; Infinite Potential</span>
+  <span class="p-mob">◆&nbsp; Intelligent Infrastructure<br>◆&nbsp; Built to Scale<br>◆&nbsp; Infinite Potential</span>
 </p>
 
   <div class="activate-wrap">
@@ -484,7 +484,7 @@ function cycle(){
   },rb+3*600+2000+200);
 }
 // Disable orbit on mobile — rings look wrong traveling off small screens
-if(window.innerWidth > 600) setTimeout(cycle,1200);
+setTimeout(cycle,3000); // orbit on all screens — paths constrained
 
 /* ── Email ── */
 const SU='https://script.google.com/macros/s/AKfycbzRSStos04_2REHzjvqZanS377F1DZcsu3HhDQA0jqlFDAMcKe_TIC8LMaaIVj9R0XSgw/exec';
