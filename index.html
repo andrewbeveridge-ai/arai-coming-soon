@@ -124,14 +124,6 @@
       .pillars { font-size:clamp(.72rem,3.5vw,.88rem); line-height:2.2; }
     }
 
-    /* Mobile pillar line break */
-    .p-break { display:none; }
-    @media(max-width:600px){
-      .p-break { display:inline; }
-      .pillars { display:flex; flex-direction:column; align-items:center; gap:.3rem; }
-      .p-line { text-align:center; }
-    }
-
     /* Activate warp button */
     .activate-wrap { margin-bottom:1.6rem; position:relative; animation:fadeUp 1s 1.1s ease both; }
     .activate-btn {
@@ -259,7 +251,7 @@
   <p class="brand-another">Another Realm</p>
   <p class="brand-dba">AI International</p>
   <div class="gold-rule"></div>
-  <p class="pillars"><span class="p-line">Intelligent Infrastructure &nbsp;◆&nbsp; Built to Scale</span><span class="p-break"> &nbsp;◆&nbsp; </span><span class="p-line">Infinite Potential</span></p>
+  <p class="pillars">Intelligent Infrastructure &nbsp;◆&nbsp; Built to Scale &nbsp;◆&nbsp; Infinite Potential</p>
 
   <div class="activate-wrap">
     <button class="activate-btn" id="activateBtn" onclick="activateWarp()">Enter The Realm</button>
