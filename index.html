@@ -124,6 +124,13 @@
       .pillars { font-size:clamp(.72rem,3.5vw,.88rem); line-height:2.2; }
     }
 
+    /* Mobile fixes */
+    @media(max-width:500px){
+      .pillars{font-size:clamp(.7rem,3.2vw,.85rem);letter-spacing:.06em;}
+      .success-msg{font-size:.88rem;letter-spacing:.04em;white-space:nowrap;}
+      .input-row button{padding:.85rem .9rem;font-size:.72rem;letter-spacing:.1em;}
+    }
+
     /* Activate warp button */
     .activate-wrap { margin-bottom:1.6rem; position:relative; animation:fadeUp 1s 1.1s ease both; }
     .activate-btn {
