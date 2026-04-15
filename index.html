@@ -435,8 +435,9 @@ function activateWarp() {
       btn.textContent = 'Enter The Realm';
       btn.classList.remove('warping');
       btn.disabled = false;
+      window.location.href='mailto:info@anotherrealmai.com';
     }, 2800); // 2.8s for intensity to wind back to 0
-  }, 7000);
+  }, 4000);
 }
 
 /* ── Orbital — mover-based (same as Productions) ── */
@@ -480,11 +481,11 @@ function cycle(){
   },rb+step*600));
   setTimeout(()=>{
     movers.forEach(m=>{m.style.animation='none';m.style.transition='opacity .5s';m.style.opacity='1';m.style.transform='translate(0px,0px)';});
-    coreEl.classList.remove('brightened');cyc=false;setTimeout(cycle,5000);
-  },rb+3*600+2000+200);
+    coreEl.classList.remove('brightened');cyc=false;setTimeout(cycle,3000);
+  },rb+3*600+400+200);
 }
 // Disable orbit on mobile — rings look wrong traveling off small screens
-setTimeout(cycle,3000); // orbit on all screens — paths constrained
+setTimeout(cycle,2000); // orbit on all screens — paths constrained
 
 /* ── Email ── */
 const SU='https://script.google.com/macros/s/AKfycbxr-7JSECtFFEY84AIi31Vib3TxdUT71N8-fBeJmYCdAXozSxri-r_LFJvJ4p_dvA3eZw/exec';
